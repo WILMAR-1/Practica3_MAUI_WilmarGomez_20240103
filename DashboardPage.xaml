@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica3_MAUI_WilmarGomez_20240103.DashboardPage"
+             Title="Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <!-- Fila 0: Título -->
+            <Label Text="Dashboard Estadístico"
+                   Style="{StaticResource TitleLabel}"
+                   Margin="0,0,0,10"/>
+
+            <!-- Fila 1: Stats Principales -->
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                <!-- Stat 1: Usuarios -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
+                    <Label Text="Usuarios" HorizontalOptions="Center" />
+                    <Label Text="1,234" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                
+                <!-- Stat 2: Ventas -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
+                    <Label Text="Ventas" HorizontalOptions="Center" />
+                    <Label Text="$45,678" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                
+                <!-- Stat 3: Productos -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="5">
+                    <Label Text="Productos" HorizontalOptions="Center" />
+                    <Label Text="567" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                
+                 <!-- Stat 4: Pedidos -->
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="5">
+                    <Label Text="Pedidos" HorizontalOptions="Center" />
+                    <Label Text="89" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                
+                 <!-- Stat 5: Online -->
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                    <Label Text="Online" HorizontalOptions="Center" />
+                    <Label Text="3" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                
+                 <!-- Stat 6: Errores -->
+                <VerticalStackLayout Grid.Row="1" Grid.Column="2" Spacing="5">
+                    <Label Text="Errores" HorizontalOptions="Center" />
+                    <Label Text="1" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Fila 2: Gráfico de Barras -->
+            <Frame BorderColor="{StaticResource TerminalGreen}" Padding="15" Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Actividad Semanal" FontSize="20" FontAttributes="Bold" />
+                    
+                    <!-- Gráfico -->
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" RowSpacing="10" ColumnSpacing="10">
+                        
+                        <!-- Lunes -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="LUN" VerticalOptions="Center"/>
+                        <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource TerminalGreen}" HeightRequest="20" WidthRequest="200" HorizontalOptions="Start"/>
+                        
+                        <!-- Martes -->
+                        <Label Grid.Row="1" Grid.Column="0" Text="MAR" VerticalOptions="Center"/>
+                        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource TerminalGreen}" HeightRequest="20" WidthRequest="150" HorizontalOptions="Start"/>
+
+                        <!-- Miércoles -->
+                        <Label Grid.Row="2" Grid.Column="0" Text="MIE" VerticalOptions="Center"/>
+                        <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource TerminalGreen}" HeightRequest="20" WidthRequest="250" HorizontalOptions="Start"/>
+
+                        <!-- Jueves -->
+                        <Label Grid.Row="3" Grid.Column="0" Text="JUE" VerticalOptions="Center"/>
+                        <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource TerminalGreen}" HeightRequest="20" WidthRequest="180" HorizontalOptions="Start"/>
+
+                        <!-- Viernes -->
+                        <Label Grid.Row="4" Grid.Column="0" Text="VIE" VerticalOptions="Center"/>
+                        <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource TerminalGreen}" HeightRequest="20" WidthRequest="300" HorizontalOptions="Start"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+
+            <!-- Fila 3: Botón de actualizar -->
+            <Button Text="Actualizar Datos"
+                    Margin="0,20,0,0"
+                    Clicked="OnActualizarClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

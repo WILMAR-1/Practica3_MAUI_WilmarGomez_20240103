@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica3_MAUI_WilmarGomez_20240103.FormularioPage"
+             Title="Formulario de Registro">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Encabezado -->
+            <Label Text="Registro de Usuario"
+                   Style="{StaticResource TitleLabel}"
+                   Margin="0,0,0,10"/>
+
+            <!-- Nombre completo -->
+            <Label Text="Nombre Completo"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <Entry x:Name="entryNombre"
+                       Placeholder="Ej: Wilmar Gomez"/>
+            </Border>
+
+            <!-- Email -->
+            <Label Text="Correo Electrónico"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <Entry x:Name="entryEmail"
+                       Placeholder="correo@ejemplo.com"
+                       Keyboard="Email"/>
+            </Border>
+
+            <!-- Teléfono -->
+            <Label Text="Teléfono"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <Entry x:Name="entryTelefono"
+                       Placeholder="(123) 456-7890"
+                       Keyboard="Telephone"
+                       MaxLength="15"/>
+            </Border>
+
+            <!-- Contraseña -->
+            <Label Text="Contraseña"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <Entry x:Name="entryPassword"
+                       Placeholder="Mínimo 6 caracteres"
+                       IsPassword="True"/>
+            </Border>
+
+            <!-- Fecha de nacimiento -->
+            <Label Text="Fecha de Nacimiento"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <DatePicker x:Name="datePicker"
+                            MinimumDate="1950-01-01"
+                            MaximumDate="2010-12-31"/>
+            </Border>
+
+            <!-- País -->
+            <Label Text="País"/>
+            <Border Style="{StaticResource InputBorderStyle}">
+                <Picker x:Name="pickerPais">
+                    <Picker.Items>
+                        <x:String>República Dominicana</x:String>
+                        <x:String>Estados Unidos</x:String>
+                        <x:String>España</x:String>
+                        <x:String>México</x:String>
+                        <x:String>Colombia</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Border>
+
+            <!-- Switch de términos -->
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Switch x:Name="switchTerminos"/>
+                <Label Text="Acepto términos y condiciones"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Botón de registro -->
+            <Button Text="Registrarse"
+                    Margin="0,10,0,0"
+                    Clicked="OnRegistrarClicked"/>
+
+            <!-- Label de resultado -->
+            <Label x:Name="labelResultado"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

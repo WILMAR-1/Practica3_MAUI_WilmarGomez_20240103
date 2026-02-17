@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica3_MAUI_WilmarGomez_20240103.GaleriaPage"
+             Title="Galería de Avatares">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Galería de Avatares"
+                   Style="{StaticResource TitleLabel}"
+                   Margin="0,0,0,10"/>
+
+            <Label Text="Avatares generados con DiceBear API"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <!-- FlexLayout para galería -->
+            <FlexLayout Direction="Row"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        AlignItems="Start">
+
+                <!-- Usamos Border para cada item y FlexLayout.Basis para un tamaño consistente -->
+                
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_001" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+                
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_002" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_003" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+                
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_004" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_005" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+                
+                <Border Style="{StaticResource InputBorderStyle}" FlexLayout.Basis="48%" Margin="5" Padding="10">
+                    <Image HeightRequest="120" Aspect="AspectFit">
+                        <Image.Source>
+                            <UriImageSource Uri="https://api.dicebear.com/9.x/pixel-art/png?seed=IMG_006" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+            </FlexLayout>
+
+            <!-- Información adicional -->
+            <Frame BorderColor="{StaticResource TerminalGreen}" Padding="15" Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="DiceBear API Info:"
+                           FontAttributes="Bold"/>
+                    <Label Text="> Estilo: pixel-art"/>
+                    <Label Text="> Fondo: Negro (000000)"/>
+                    <Label Text="> Semilla (seed): Aleatoria por item"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica3_MAUI_WilmarGomez_20240103.MainPage"
+             Title="Menú Principal">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <!-- Título de la app -->
+        <Label Text="Layouts XAML"
+               Style="{StaticResource TitleLabel}"
+               Margin="0,0,0,10"/>
+
+        <Label Text="Práctica 3 - Wilmar Gomez"
+               HorizontalOptions="Center"/>
+        <Label Text="2024-0103"
+               HorizontalOptions="Center"
+               Margin="0,0,0,30"/>
+
+        <!-- Botones del menú -->
+        <Button Text="Formulario (StackLayout)"
+                Clicked="OnFormularioClicked"/>
+
+        <Button Text="Dashboard (Grid)"
+                Clicked="OnDashboardClicked"/>
+
+        <Button Text="Galería (FlexLayout)"
+                Clicked="OnGaleriaClicked"/>
+
+        <Button Text="BONUS: Perfil (Grid + Stack)"
+                Clicked="OnCreativeClicked"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

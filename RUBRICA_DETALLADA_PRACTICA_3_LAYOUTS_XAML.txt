@@ -1,0 +1,402 @@
+RÚBRICA DETALLADA - PRÁCTICA 3: LAYOUTS XAML
+Total de puntos: 2.5 (2.0 base + 0.5 bonus)
+
+TABLA COMPLETA DE RÚBRICA
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+1. Proyect o y Menú (0.5 pts) Creaci ón del proyect o y pantall a de
+menú princip al con navega ción 0.5 pts: Proyecto creado con nombre
+correcto. NavigationPage configurado en App.xaml.cs. MainPage con 3
+botones bien diseñados (colores, tamaño, esquinas redondeadas). Los 3
+botones navegan correctamente a sus respectivas pantallas. Capturas
+muestran código y funcionamiento. 0.25 pts: Proyecto creado pero nombre
+genérico. NavigationPage configurado. Botones funcionales pero diseño
+básico (sin estilo). 1 de los 3 botones tiene problema de navegación.
+Capturas presentes pero incompletas. 0.0 pts: Proyecto no creado o
+nombre incorrecto. NavigationPag e no configurado. Menos de 3 botones.
+Navegación no funciona. Sin capturas. N/A
+2. Formul ario StackLa yout (0.75 pts) Pantall a de formul ario usando
+StackL ayout 0.75 pts: FormularioPage completo con StackLayout. Incluye
+todos los controles: Entry (nombre, email, 0.4 pts: Formulario con
+StackLayout pero falta 1 -2 campos. Espaciado presente pero
+inconsistente. Validación parcial 0.0 pts: Formulario con menos de 5
+campos. No usa StackLayout correctamentN/A
+
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+con múltipl es control es y validaci ón teléfono, password), DatePicker,
+Picker, Switch. Spacing y Padding apropiados (10 - 20px). Validación
+funciona correctamente: verifica campos vacíos y switch, muestra
+mensajes de error/éxito. 3 capturas: código, formulario vacío,
+formulario con datos validados. (solo verifica 1 -2 campos). Solo 1-2
+capturas o validación no visible en capturas. e. Sin validación
+implementad a. Menos de 2 capturas.
+3. Dashbo ard Grid (0.75 pts) Pantall a de dashbo ard usando Grid con
+distribu ción 2x2 0.75 pts: Grid correctamente estructurado con
+RowDefinitions=” Auto,,,Auto” y ColumnDefinition s=“,”. 4 tarjetas
+(Frames) distribuidas en Grid 2x2 usando Grid.Row y Grid.Column. Título
+usa Grid.ColumnSpa n=“2”. Cada 0.4 pts: Grid implementado pero
+RowDefinitions/Colu mnDefinitions mal configurados. 4 tarjetas presentes
+pero no distribuidas en 2x2 correcto. No usa ColumnSpan. Colores
+similares o diseño poco atractivo. Solo 1 captura o código incompleto.
+0.0 pts: No usa Grid o usa otro layout. Menos de 4 tarjetas. No usa
+Grid.Row/Grid .Column. Sin estructura de filas/columna s definida. N/A
+
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+tarjeta tiene color de fondo diferente, ícono emoji, título y valor.
+Diseño visualmente atractivo. 2 capturas: código Grid y dashboard en
+emulador.
+4. Galería FlexLay out (0.75 pts) Pantall a de galería usando FlexLay
+out con wrap 0.75 pts: FlexLayout correctamente implementado con
+Direction=“Row” y Wrap=“Wrap”. Mínimo 8 items (Frames) cada uno con
+WidthRequest=“1 00” y HeightRequest=” 100”. JustifyContent configurado
+(SpaceAround o SpaceBetween). Colores diferentes por item. Items se
+envuelven correctamente en múltiples líneas 0.4 pts: FlexLayout con Wrap
+pero menos de 8 items (6 - 7). WidthRequest presente pero JustifyContent
+no optimizado. Items se envuelven parcialmente. Colores repetidos. Solo
+1 captura o wrap no evidente. 0.0 pts: No usa FlexLayout o usa otro
+layout. Sin Wrap=“Wrap” (items no se envuelven). Menos de 6 items. Sin
+WidthRequest (items no tienen tamaño fijo). N/A
+
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+cuando no caben. 2 capturas: código FlexLayout y galería funcionando.
+5. Compar ación XAML/X ML (0.25 pts) Tabla compar ativa y análisis de
+diferen cias entre XAML y Androi d XML 0.25 pts: Tabla comparativa con
+mínimo 8 elementos comparados correctamente (layouts, controles,
+propiedades). Las 3 preguntas respondidas con explicaciones claras y
+correctas: ventajas de XAML (multiplataforma, binding), equivalente de
+ConstraintLayout (Grid), au sencia de FlexLayout en Android. Demuestra
+comprensión real. 0.15 pts: Tabla con 5-7 elementos, algunas
+comparaciones incorrectas. 1 -2 preguntas bien respondidas.
+Explicaciones superficiales o breves pero en esencia correctas. 0.0 pts:
+Tabla con menos de 5 elementos o muchas comparacion es incorrectas. 0
+preguntas respondidas o respuestas incorrectas. No demuestra comprensión
+de diferencias. N/A
+6. BONUS: Pantall a N/A N/A 0.0 pts: No completó 0.5 pts: Pantalla
+
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+Diseño Creativ o (0.5 pts) adicion al con diseño original que combin a
+múltipl es layouts bonus o muy simple adicional creativa con diseño
+original. Usa mínimo 2 layouts diferentes anidados apropiad amente (ej:
+Grid con StackLay out dentro, o FlexLayou t con Frames que contienen
+Grid). Diseño visualme nte atractivo: colores consisten tes, espaciad o
+uniforme, tipografía apropiad
+
+Criterio Descri pción Excelente Regular Insuficiente Bonus
+a. Funcional idad básica implemen tada (botones responde n, navegació n,
+etc.). 2 capturas: código XAML y emulador .
+
+DESGLOSE DETALLADO POR CRITERIO
+CRITERIO 1: Proyecto y Menú Principal (máx 0.5 pts)
+Qué evaluar:
+• Nombre del proyecto correcto
+• NavigationPage configurado
+• MainPage con 3 botones diseñados
+• Navegación funcionando a 3 pantallas
+Niveles:
+EXCELENTE (0.5 pts):
+• ✓ Proyecto: Practica3_Layouts_[Nombre]
+• ✓ App.xaml.cs: MainPage = new NavigationPage(new MainPage());
+• ✓ MainPage.xaml: 3 botones con estilo profesional
+
+o BackgroundColor diferentes por botón
+o HeightRequest=“60”
+o CornerRadius=“10”
+o FontSize=“18”
+o Texto descriptivo con emoji opcional
+• ✓ MainPage.xaml.cs: 3 métodos async con PushAsync
+• ✓ Navegación funciona a las 3 páginas
+• ✓ Captura 1: Solution Explorer
+• ✓ Captura 2: MainPage.xaml código
+• ✓ Captura 3: MainPage en emulador con 3 botones
+REGULAR (0.25 pts):
+• ✓ Proyecto creado, nombre puede ser genérico
+• ✓ NavigationPage configurado
+• ✓ 3 botones presentes pero diseño básico (sin estilo)
+• ✓ 2 de 3 navegaciones funcionan
+• ✓ 2 de 3 capturas presentes
+INSUFICIENTE (0.0 pts):
+• ✗ Proyecto no creado o mal nombrado
+• ✗ Sin NavigationPage
+• ✗ Menos de 3 botones
+• ✗ Navegación no funciona
+• ✗ Sin capturas
+
+CRITERIO 2: Formulario con StackLayout (máx 0.75 pts)
+Qué evaluar:
+• StackLayout correctamente usado
+
+• Todos los controles requeridos
+• Validación implementada
+• Espaciado apropiado
+Controles requeridos:
+1. Entry para nombre (Placeholder apropiado)
+2. Entry para email (Keyboard=“Email”)
+3. Entry para teléfono (Keyboard=“Telephone”, MaxLength)
+4. Entry para password (IsPassword=“True”)
+5. DatePicker para fecha nacimiento
+6. Picker con países (mínimo 3 opciones)
+7. Switch para términos
+8. Button para registrarse
+9. Label para resultado
+Niveles:
+EXCELENTE (0.75 pts):
+• ✓ StackLayout con Padding=“20” y Spacing=“15”
+• ✓ 9 elementos todos presentes y configurados
+• ✓ Validación verifica:
+o Campos vacíos
+o Switch activado
+o Muestra mensaje de error (rojo) o éxito (verde)
+• ✓ Código limpio en FormularioPage.xaml
+• ✓ Método OnRegistrarClicked funcional
+• ✓ Captura 4: Código del formulario
+• ✓ Captura 5: Formulario vacío
+• ✓ Captura 6: Mensaje de éxito/validación
+
+REGULAR (0.4 pts):
+• ✓ StackLayout usado
+• ✓ 6-8 elementos (falta 1 -2 campos)
+• ✓ Validación parcial (solo verifica 1 -2 cosas)
+• ✓ Espaciado presente pero inconsistente
+• ✓ 2 de 3 capturas
+INSUFICIENTE (0.0 pts):
+• ✗ Menos de 5 campos
+• ✗ No usa StackLayout
+• ✗ Sin validación
+• ✗ Menos de 2 capturas
+
+CRITERIO 3: Dashboard con Grid (máx 0.75 pts)
+Qué evaluar:
+• Grid con RowDefinitions y ColumnDefinitions
+• 4 tarjetas en distribución 2x2
+• Uso de Grid.Row, Grid.Column
+• Uso de Grid.ColumnSpan
+• Diseño visual atractivo
+Estructura esperada:
+
+<Label Grid.Row=“0” Grid.ColumnSpan=“2”/>
+
+<Frame Grid.Row=“1” Grid.Column=“0”/>
+
+<Frame Grid.Row=“1” Grid.Column=“1”/>
+
+<Frame Grid.Row=“2” Grid.Column=“0”/>
+
+<Frame Grid.Row=“2” Grid.Column=“1”/>
+
+<Button Grid.Row=“3” Grid.ColumnSpan=“2”/>
+Niveles:
+EXCELENTE (0.75 pts):
+• ✓ Grid con RowDefinitions y ColumnDefinitions correctos
+• ✓ 4 Frames con BackgroundColor diferentes
+• ✓ Cada Frame contiene StackLayout con:
+o Emoji (Label con FontSize grande)
+o Título descriptivo
+o Valor numérico grande y bold
+• ✓ Título usa Grid.ColumnSpan=“2”
+• ✓ Botón usa Grid.ColumnSpan=“2”
+• ✓ RowSpacing y ColumnSpacing configurados
+
+• ✓ Captura 7: Código completo del Grid
+• ✓ Captura 8: Dashboard en emulador mostrando 4 tarjetas
+REGULAR (0.4 pts):
+• ✓ Grid usado pero RowDefinitions/ColumnDefinitions simplificados
+• ✓ 4 tarjetas presentes pero no en 2x2 perfecto
+• ✓ No usa ColumnSpan o lo usa incorrectamente
+• ✓ Diseño funcional pero poco atractivo (colores similares)
+• ✓ 1 captura presente
+INSUFICIENTE (0.0 pts):
+• ✗ No usa Grid (usa StackLayout u otro)
+• ✗ Menos de 4 tarjetas
+• ✗ Sin RowDefinitions/ColumnDefinitions
+• ✗ No usa Grid.Row/Grid.Column
+
+CRITERIO 4: Galería con FlexLayout (máx 0.75 pts)
+Qué evaluar:
+• FlexLayout con propiedades correctas
+• Wrap habilitado
+• Mínimo 8 items
+• Items se envuelven visualmente
+Propiedades esperadas:
+Niveles:
+
+EXCELENTE (0.75 pts):
+• ✓ FlexLayout con Direction=“Row” y Wrap=“Wrap”
+• ✓ JustifyContent configurado (SpaceAround, SpaceBetween, etc.)
+• ✓ Mínimo 8 Frames/items
+• ✓ Cada item con:
+o WidthRequest=“100”
+o HeightRequest=“100”
+o BackgroundColor diferente
+o CornerRadius opcional
+o Label con texto centrado
+• ✓ Items se envuelven correctamente en la captura
+• ✓ Margin=“5” en items para separación
+• ✓ Captura 9: Código FlexLayout
+• ✓ Captura 10: Galería en emulador con wrap visible
+REGULAR (0.4 pts):
+• ✓ FlexLayout con Wrap
+• ✓ 6-7 items (menos de 8)
+• ✓ WidthRequest presente
+• ✓ JustifyContent no configurado o mal usado
+• ✓ Wrap funciona pero no es obvio en captura
+• ✓ 1 captura
+INSUFICIENTE (0.0 pts):
+• ✗ No usa FlexLayout
+• ✗ Sin Wrap=“Wrap” (items en una sola línea)
+• ✗ Menos de 6 items
+• ✗ Sin WidthRequest (items sin tamaño fijo)
+
+CRITERIO 5: Comparación XAML vs Android XML (máx 0.25 pts)
+Tabla esperada (mínimo 8 elementos):
+Aspecto Android XML MAUI XAML
+Layout vertical LinearLayout StackLayout
+Layout grid GridLayout/ConstraintLayout Grid
+Layout flexible - FlexLayout
+TextView TextView Label
+EditText EditText Entry
+Button Button Button
+Espaciado margin/padding Margin/Padding
+ID android:id x:Name
+Preguntas:
+1. Ventajas de XAML sobre XML de Android:
+o Multiplataforma (un código para Android, iOS, Windows, macOS)
+o Data binding más potente
+o Sintaxis más limpia y moderna
+o Estilos más flexibles
+2. Equivalente de ConstraintLayout:
+o Grid (permite posicionamiento relativo y flexible)
+3. FlexLayout en Android:
+o Android no tiene equivalente nativo
+o FlexLayout está basado en CSS Flexbox
+Niveles:
+
+EXCELENTE (0.25 pts):
+• ✓ Tabla con 8+ elementos comparados
+• ✓ Comparaciones correctas
+• ✓ 3 preguntas con respuestas completas y correctas
+• ✓ Explicaciones demuestran comprensión
+REGULAR (0.15 pts):
+• ✓ Tabla con 5 -7 elementos
+• ✓ 1-2 comparaciones incorrectas
+• ✓ 1-2 preguntas respondidas
+• ✓ Explicaciones breves pero correctas
+INSUFICIENTE (0.0 pts):
+• ✗ Tabla con menos de 5 elementos
+• ✗ Muchas comparaciones incorrectas
+• ✗ 0 preguntas respondidas
+• ✗ Respuestas incorrectas
+
+CRITERIO 6: BONUS - Diseño Creativo (máx 0.5 pts)
+Qué evaluar:
+• Originalidad del diseño
+• Uso de múltiples layouts anidados
+• Calidad visual
+• Funcionalidad básica
+Ideas aceptables:
+• Perfil de usuario (Grid con imagen arriba, info en StackLayout abajo)
+• Pantalla de producto (FlexLayout con imágenes, Grid con info)
+• Chat UI (StackLayout con mensajes alineados)
+
+• Calculadora (Grid para botones, StackLayout para display)
+Niveles:
+COMPLETADO (0.5 pts):
+• ✓ Pantalla adicional creada (5ta página)
+• ✓ Usa mínimo 2 layouts diferentes combinados
+o Ejemplo: Grid como contenedor principal con StackLayout dentro
+o Ejemplo: FlexLayout con Frames que tienen Grid interior
+• ✓ Diseño visualmente atractivo:
+o Colores consistentes y profesionales
+o Espaciado uniforme (Padding/Margin apropiados)
+o Tipografía bien elegida (FontSize, FontAttributes)
+• ✓ Funcionalidad básica funciona:
+o Botones responden con DisplayAlert o cambios visuales
+o Navegación correcta si aplica
+• ✓ Captura Bonus 1: Código XAML completo
+• ✓ Captura Bonus 2: Pantalla en emulador
+NO COMPLETADO (0.0 pts):
+• ✗ No creó pantalla adicional
+• ✗ Usa solo 1 layout
+• ✗ Diseño muy simple o sin estilo
+• ✗ No funcional
+
+CÁLCULO DE PUNTUACIÓN FINAL
+Puntuación base (máximo 2.5 puntos):
+• Criterio 1: hasta 0.5
+• Criterio 2: hasta 0.75
+
+• Criterio 3: hasta 0.75
+• Criterio 4: hasta 0.75
+• Criterio 5: hasta 0.25
+• Subtotal: 3.0 puntos
+Bonificación (máximo 0.5 puntos):
+• Criterio 6: hasta 0.5
+NOTA: Esta práctica vale 2.0 puntos de las prácticas del período, pero
+permite hasta 2.5 puntos con el bonus. Los 0.5 puntos extra se suman
+directamente a la calificación final.
+
+NIVELES DE APROBACIÓN
+Calificación Nivel Descripción
+2.5 - 2.25 Sobresaliente Completó todo perfectamente + bonus
+2.24 - 2.0 Excelente Completó todos los requisitos base perfectamente
+1.99 - 1.75 Muy Bueno Requisitos base con deficiencias menores
+1.74 - 1.4 Bueno (Aprobado) Requisitos mínimos cumplidos
+1.39 - 1.0 Regular (No aprobado) Cumplimiento parcial
+< 1.0 Insuficiente No cumplió requisitos mínimos
+Nota mínima para aprobar: 1.4 puntos (70% de 2.0)
+
+EJEMPLOS DE CALIFICACIÓN
+Ejemplo 1: Sobresaliente (2.5 pts)
+• Proyecto y Menú: 0.5/0.5
+• Formulario: 0.75/0.75
+
+• Dashboard: 0.75/0.75
+• Galería: 0.75/0.75
+• Comparación: 0.25/0.25
+• Bonus Creativo: 0.5/0.5
+• TOTAL: 2.5/2.5 (equivale a 2.5/2.0 de la práctica)
+Ejemplo 2: Excelente (2.25 pts)
+• Proyecto: 0.5/0.5
+• Formulario: 0.75/0.75
+• Dashboard: 0.75/0.75
+• Galería: 0.75/0.75
+• Comparación: 0.25/0.25
+• Bonus: 0.25/0.5 (diseño simple)
+• TOTAL: 2.25/2.5 (equivale a 2.25/2.0)
+Ejemplo 3: Bueno (1.65 pts)
+• Proyecto: 0.25/0.5 (sin estilo)
+• Formulario: 0.4/0.75 (sin validación completa)
+• Dashboard: 0.75/0.75
+• Galería: 0.4/0.75 (solo 6 items)
+• Comparación: 0.25/0.25
+• Bonus: 0/0.5
+• TOTAL: 1.65/2.5 (Aprobado)
+Ejemplo 4: Regular (1.15 pts)
+• Proyecto: 0.25/0.5
+• Formulario: 0.4/0.75 (falta validación)
+• Dashboard: 0/0.75 (usó StackLayout)
+
+• Galería: 0.4/0.75 (solo 6 items)
+• Comparación: 0.15/0.25
+• Bonus: 0/0.5
+• TOTAL: 1.15/2.5 (No aprobado)
+
+ERRORES FRECUENTES Y CÓMO DETECTARLOS
+Error 1: Grid sin RowDefinitions/ColumnDefinitions
+Síntoma: Tarjetas todas apiladas o superpuestas Detección: Revisar
+código, buscar RowDefinitions=“” Comentario: “Recuerda definir
+RowDefinitions y ColumnDefinitions en Grid”
+Error 2: FlexLayout sin Wrap
+Síntoma: Todos los items en una sola línea Detección: Captura muestra
+items cortados o fuera de vista Comentario: “Agrega Wrap=‘Wrap’ al
+FlexLayout para que los items se envuelvan”
+Error 3: Grid.Row/Column no usado
+Síntoma: Todo en posición (0,0) superpuesto Detección: Código no tiene
+Grid.Row=“X” Grid.Column=“Y” Comentario: “Usa Grid.Row y Grid.Column
+para posicionar elementos en el Grid”
+Error 4: Formulario sin validación
+Síntoma: Solo captura de formulario, sin mensaje de éxito Detección:
+Falta captura 6, o código no tiene if statements Comentario: “Implementa
+validación que verifique campos y muestre resultado”
+Error 5: Menos items de lo requerido
+Síntoma: Galería con 5 -6 items Detección: Contar Frames en captura
+Comentario:
+“La galería requiere mínimo 8 items”

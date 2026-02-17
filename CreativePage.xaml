@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica3_MAUI_WilmarGomez_20240103.CreativePage"
+             Title="Perfil de Usuario">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Fila 0: Encabezado con Imagen y Nombre -->
+            <Frame CornerRadius="100" HeightRequest="200" WidthRequest="200" IsClippedToBounds="True" Padding="0" BorderColor="{StaticResource TerminalGreen}" HorizontalOptions="Center">
+                <Image Source="https://api.dicebear.com/9.x/pixel-art/png?seed=WILMAR-1&amp;size=200&amp;hairColor=654321" Aspect="AspectFill" HeightRequest="200" WidthRequest="200" />
+            </Frame>
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Label Text="Wilmar Gomez" Style="{StaticResource TitleLabel}" FontSize="26" />
+                <Label Text="Full Stack Developer" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Fila 1: Estadísticas -->
+            <Frame BorderColor="{StaticResource TerminalGreen}" Padding="15">
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" HorizontalOptions="Center">
+                        <Label Text="128" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                        <Label Text="Proyectos" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" HorizontalOptions="Center">
+                        <Label Text="2,5K" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                        <Label Text="Seguidores" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
+                        <Label Text="42" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                        <Label Text="Artículos" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Fila 2: Descripción -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Sobre mí" Style="{StaticResource TitleLabel}" FontSize="22" />
+                <Label Text="Full Stack Developer. Actualmente en Humano Seguros y consultor en Cooperativa de Maestros. Cursando el último cuatrimestre en ITLA."
+                       FontSize="16" />
+            </VerticalStackLayout>
+            
+            <!-- Fila 3: Botón de Contacto -->
+            <Button Text="Contactar"
+                    VerticalOptions="End"
+                    Clicked="OnContactarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

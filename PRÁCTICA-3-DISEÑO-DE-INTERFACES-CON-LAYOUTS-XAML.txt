@@ -1,0 +1,1444 @@
+PRÁCTICA 3 - DISEÑO DE INTERFACES CON LAYOUTS XAML
+
+
+
+INFORMACIÓN GENERAL
+
+Asignatura: Introducción al Desarrollo de Aplicaciones Móviles
+Período: 2016-C1
+Semana: 3
+Instructor: Michael Grullon
+Valor: 2 puntos (de 8 puntos totales de prácticas del Primer Período)
+Fecha de entrega: Usualmente 7 días después de la clase
+Modalidad de entrega: A través de Moodle
+
+
+
+OBJETIVOS DE LA PRÁCTICA
+
+Al completar esta práctica demostrarás que:
+
+   Dominas la sintaxis XAML para crear interfaces
+   Puedes usar diferentes layouts según el diseño requerido
+   Conoces las propiedades de espaciado y alineación
+   Utilizas controles básicos (Label, Entry, Button, Image)
+   Comprendes las diferencias entre XAML y XML de Android
+
+
+
+DESCRIPCIÓN DE LA PRÁCTICA
+
+Crearás una aplicación multi-pantalla que demuestre el uso de los 3 layouts
+principales de MAUI: StackLayout, Grid y FlexLayout. Cada pantalla tendrá un
+propósito específico y usará el layout más apropiado.
+
+
+
+INSTRUCCIONES DETALLADAS
+
+PARTE 1: Crear el Proyecto (0.25 puntos)
+
+1.1 Crear nuevo proyecto
+
+   1. Abre Visual Studio 2022
+
+   2. Crea un nuevo proyecto .NET MAUI App
+     3. Nombre: Practica3_Layouts_[TuNombre]
+
+             o   Ejemplo: Practica3_Layouts_JuanPerez
+
+     4. Framework: .NET 8.0 o superior
+
+     5. Espera a que el proyecto se cree completamente
+
+1.2 Configurar NavigationPage
+
+     1. Abre App.xaml.cs
+
+     2. Modifica el constructor para usar NavigationPage:
+
+public App()
+
+{
+
+    InitializeComponent();
+
+    MainPage = new NavigationPage(new MainPage());
+
+}
+
+CAPTURA DE PANTALLA 1: Solution Explorer mostrando el proyecto creado
+
+
+
+PARTE 2: Pantalla Principal con Menú (StackLayout) - 0.5 puntos
+
+2.1 Diseñar MainPage.xaml
+
+Esta será tu pantalla de menú principal usando StackLayout.
+
+     1. Abre MainPage.xaml
+
+     2. Reemplaza TODO el contenido entre <ContentPage> y </ContentPage> con:
+
+<StackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+
+
+    <!-- Título de la app -->
+
+    <Label Text="Layouts XAML"
+
+       FontSize="40"
+
+       FontAttributes="Bold"
+
+       HorizontalOptions="Center"
+   TextColor="#0078D4"/>
+
+
+
+<Label Text="Práctica 3 - [Tu Nombre]"
+
+   FontSize="18"
+
+   HorizontalOptions="Center"
+
+   TextColor="Gray"
+
+   Margin="0,0,0,30"/>
+
+
+
+<!-- Botones del menú -->
+
+<Button Text="     Formulario (StackLayout)"
+
+   FontSize="18"
+
+   BackgroundColor="#0078D4"
+
+   TextColor="White"
+
+   Clicked="OnFormularioClicked"
+
+   HeightRequest="60"
+
+   CornerRadius="10"/>
+
+
+
+<Button Text="     Dashboard (Grid)"
+
+   FontSize="18"
+
+   BackgroundColor="#16C60C"
+
+   TextColor="White"
+
+   Clicked="OnDashboardClicked"
+
+   HeightRequest="60"
+
+   CornerRadius="10"/>
+
+
+
+<Button Text="     Galería (FlexLayout)"
+       FontSize="18"
+
+       BackgroundColor="#FF6B35"
+
+       TextColor="White"
+
+       Clicked="OnGaleriaClicked"
+
+       HeightRequest="60"
+
+       CornerRadius="10"/>
+
+
+
+</StackLayout>
+
+Nota: Reemplaza [Tu Nombre] con tu nombre real.
+
+2.2 Implementar eventos en MainPage.xaml.cs
+
+     1. Abre MainPage.xaml.cs
+
+     2. Agrega estos métodos dentro de la clase MainPage:
+
+private async void OnFormularioClicked(object sender, EventArgs e)
+
+{
+
+    await Navigation.PushAsync(new FormularioPage());
+
+}
+
+
+
+private async void OnDashboardClicked(object sender, EventArgs e)
+
+{
+
+    await Navigation.PushAsync(new DashboardPage());
+
+}
+
+
+
+private async void OnGaleriaClicked(object sender, EventArgs e)
+
+{
+
+    await Navigation.PushAsync(new GaleriaPage());
+
+}
+CAPTURA DE PANTALLA 2: MainPage.xaml mostrando el código completo
+
+CAPTURA DE PANTALLA 3: MainPage en el emulador mostrando los 3 botones
+
+
+
+PARTE 3: Pantalla de Formulario (StackLayout) - 0.75 puntos
+
+3.1 Crear FormularioPage
+
+   1. Clic derecho en el proyecto → Add → New Item
+
+   2. Selecciona ".NET MAUI ContentPage (XAML)"
+
+   3. Nombre: FormularioPage.xaml
+
+   4. Haz clic en Add
+
+3.2 Diseñar el formulario
+
+   1. Abre FormularioPage.xaml
+
+   2. Reemplaza el contenido:
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+     x:Class="[TuNamespace].FormularioPage"
+
+     Title="Formulario de Registro">
+
+
+
+ <ScrollView>
+
+   <StackLayout Padding="20" Spacing="15">
+
+
+
+     <!-- Encabezado -->
+
+     <Label Text="Registro de Usuario"
+
+        FontSize="28"
+
+        FontAttributes="Bold"
+
+        HorizontalOptions="Center"
+   TextColor="#0078D4"
+
+   Margin="0,10,0,20"/>
+
+
+
+<!-- Nombre completo -->
+
+<Label Text="Nombre Completo"/>
+
+<Entry x:Name="entryNombre"
+
+   Placeholder="Ej: Juan Pérez"/>
+
+
+
+<!-- Email -->
+
+<Label Text="Correo Electrónico"/>
+
+<Entry x:Name="entryEmail"
+
+   Placeholder="correo@ejemplo.com"
+
+   Keyboard="Email"/>
+
+
+
+<!-- Teléfono -->
+
+<Label Text="Teléfono"/>
+
+<Entry x:Name="entryTelefono"
+
+   Placeholder="(123) 456-7890"
+
+   Keyboard="Telephone"
+
+   MaxLength="15"/>
+
+
+
+<!-- Contraseña -->
+
+<Label Text="Contraseña"/>
+
+<Entry x:Name="entryPassword"
+
+   Placeholder="Mínimo 6 caracteres"
+
+   IsPassword="True"/>
+<!-- Fecha de nacimiento -->
+
+<Label Text="Fecha de Nacimiento"/>
+
+<DatePicker x:Name="datePicker"
+
+     MinimumDate="1950-01-01"
+
+     MaximumDate="2010-12-31"/>
+
+
+
+<!-- País -->
+
+<Label Text="País"/>
+
+<Picker x:Name="pickerPais">
+
+  <Picker.Items>
+
+    <x:String>República Dominicana</x:String>
+
+    <x:String>Estados Unidos</x:String>
+
+    <x:String>España</x:String>
+
+    <x:String>México</x:String>
+
+    <x:String>Colombia</x:String>
+
+  </Picker.Items>
+
+</Picker>
+
+
+
+<!-- Switch de términos -->
+
+<StackLayout Orientation="Horizontal" Spacing="10">
+
+  <Switch x:Name="switchTerminos"/>
+
+  <Label Text="Acepto términos y condiciones"
+
+     VerticalOptions="Center"/>
+
+</StackLayout>
+       <!-- Botón de registro -->
+
+       <Button Text="Registrarse"
+
+           BackgroundColor="#0078D4"
+
+           TextColor="White"
+
+           HeightRequest="50"
+
+           CornerRadius="10"
+
+           Margin="0,20,0,0"
+
+           Clicked="OnRegistrarClicked"/>
+
+
+
+       <!-- Label de resultado -->
+
+       <Label x:Name="labelResultado"
+
+          FontSize="16"
+
+          HorizontalOptions="Center"
+
+          Margin="0,10,0,0"/>
+
+
+
+     </StackLayout>
+
+    </ScrollView>
+
+
+
+</ContentPage>
+
+Nota: Reemplaza [TuNamespace] con el namespace de tu proyecto (generalmente el
+nombre del proyecto).
+
+3.3 Implementar la lógica del formulario
+
+     1. Abre FormularioPage.xaml.cs
+
+     2. Agrega este método:
+
+private void OnRegistrarClicked(object sender, EventArgs e)
+
+{
+    // Validar que todos los campos estén llenos
+
+    if (string.IsNullOrWhiteSpace(entryNombre.Text))
+
+    {
+
+        labelResultado.Text = "   Por favor ingresa tu nombre";
+
+        labelResultado.TextColor = Colors.Red;
+
+        return;
+
+    }
+
+
+
+    if (string.IsNullOrWhiteSpace(entryEmail.Text))
+
+    {
+
+        labelResultado.Text = "   Por favor ingresa tu email";
+
+        labelResultado.TextColor = Colors.Red;
+
+        return;
+
+    }
+
+
+
+    if (!switchTerminos.IsToggled)
+
+    {
+
+        labelResultado.Text = "   Debes aceptar los términos";
+
+        labelResultado.TextColor = Colors.Red;
+
+        return;
+
+    }
+
+
+
+    // Si todo está bien
+
+    labelResultado.Text = $"      ¡Bienvenido {entryNombre.Text}!";
+
+    labelResultado.TextColor = Colors.Green;
+
+}
+CAPTURA DE PANTALLA 4: FormularioPage.xaml mostrando el código del formulario
+
+CAPTURA DE PANTALLA 5: Formulario en el emulador (sin llenar)
+
+CAPTURA DE PANTALLA 6: Formulario en el emulador mostrando validación exitosa
+
+
+
+PARTE 4: Pantalla Dashboard (Grid) - 0.75 puntos
+
+4.1 Crear DashboardPage
+
+   1. Add → New Item → .NET MAUI ContentPage (XAML)
+
+   2. Nombre: DashboardPage.xaml
+
+4.2 Diseñar el dashboard con Grid
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+     x:Class="[TuNamespace].DashboardPage"
+
+     Title="Dashboard">
+
+
+
+ <Grid Padding="15"
+
+    RowSpacing="15"
+
+    ColumnSpacing="15"
+
+    RowDefinitions="Auto,*,*,Auto"
+
+    ColumnDefinitions="*,*">
+
+
+
+   <!-- Fila 0: Título (ocupa 2 columnas) -->
+
+   <Label Text="Dashboard Estadístico"
+
+      Grid.Row="0"
+
+      Grid.Column="0"
+
+      Grid.ColumnSpan="2"
+   FontSize="28"
+
+   FontAttributes="Bold"
+
+   HorizontalOptions="Center"
+
+   TextColor="#0078D4"
+
+   Margin="0,10,0,10"/>
+
+
+
+<!-- Fila 1, Columna 0: Usuarios -->
+
+<Frame Grid.Row="1"
+
+   Grid.Column="0"
+
+   BackgroundColor="#E3F2FD"
+
+   CornerRadius="15"
+
+   Padding="20">
+
+ <StackLayout Spacing="10">
+
+   <Label Text="    "
+
+       FontSize="40"
+
+       HorizontalOptions="Center"/>
+
+   <Label Text="Usuarios"
+
+       FontSize="16"
+
+       HorizontalOptions="Center"
+
+       TextColor="Gray"/>
+
+   <Label Text="1,234"
+
+       FontSize="32"
+
+       FontAttributes="Bold"
+
+       HorizontalOptions="Center"
+
+       TextColor="#0078D4"/>
+
+ </StackLayout>
+</Frame>
+
+
+
+<!-- Fila 1, Columna 1: Ventas -->
+
+<Frame Grid.Row="1"
+
+   Grid.Column="1"
+
+   BackgroundColor="#E8F5E9"
+
+   CornerRadius="15"
+
+   Padding="20">
+
+ <StackLayout Spacing="10">
+
+   <Label Text="     "
+
+       FontSize="40"
+
+       HorizontalOptions="Center"/>
+
+   <Label Text="Ventas"
+
+       FontSize="16"
+
+       HorizontalOptions="Center"
+
+       TextColor="Gray"/>
+
+   <Label Text="$45,678"
+
+       FontSize="32"
+
+       FontAttributes="Bold"
+
+       HorizontalOptions="Center"
+
+       TextColor="#16C60C"/>
+
+ </StackLayout>
+
+</Frame>
+
+
+
+<!-- Fila 2, Columna 0: Productos -->
+
+<Frame Grid.Row="2"
+   Grid.Column="0"
+
+   BackgroundColor="#FFF3E0"
+
+   CornerRadius="15"
+
+   Padding="20">
+
+ <StackLayout Spacing="10">
+
+   <Label Text="    "
+
+       FontSize="40"
+
+       HorizontalOptions="Center"/>
+
+   <Label Text="Productos"
+
+       FontSize="16"
+
+       HorizontalOptions="Center"
+
+       TextColor="Gray"/>
+
+   <Label Text="567"
+
+       FontSize="32"
+
+       FontAttributes="Bold"
+
+       HorizontalOptions="Center"
+
+       TextColor="#FF6B35"/>
+
+ </StackLayout>
+
+</Frame>
+
+
+
+<!-- Fila 2, Columna 1: Pedidos -->
+
+<Frame Grid.Row="2"
+
+   Grid.Column="1"
+
+   BackgroundColor="#F3E5F5"
+
+   CornerRadius="15"
+
+   Padding="20">
+ <StackLayout Spacing="10">
+
+   <Label Text="     "
+
+       FontSize="40"
+
+       HorizontalOptions="Center"/>
+
+   <Label Text="Pedidos"
+
+       FontSize="16"
+
+       HorizontalOptions="Center"
+
+       TextColor="Gray"/>
+
+   <Label Text="89"
+
+       FontSize="32"
+
+       FontAttributes="Bold"
+
+       HorizontalOptions="Center"
+
+       TextColor="#9C27B0"/>
+
+ </StackLayout>
+
+</Frame>
+
+
+
+<!-- Fila 3: Botón de actualizar (ocupa 2 columnas) -->
+
+<Button Text="     Actualizar Datos"
+
+   Grid.Row="3"
+
+   Grid.Column="0"
+
+   Grid.ColumnSpan="2"
+
+   BackgroundColor="#0078D4"
+
+   TextColor="White"
+
+   FontSize="18"
+
+   HeightRequest="50"
+
+   CornerRadius="10"
+         Clicked="OnActualizarClicked"/>
+
+
+
+    </Grid>
+
+
+
+</ContentPage>
+
+4.3 Implementar la lógica
+
+private async void OnActualizarClicked(object sender, EventArgs e)
+
+{
+
+    await DisplayAlert("Actualizado", "Los datos han sido actualizados", "OK");
+
+}
+
+CAPTURA DE PANTALLA 7: DashboardPage.xaml mostrando la estructura del Grid
+
+CAPTURA DE PANTALLA 8: Dashboard en el emulador mostrando las 4 tarjetas
+
+
+
+PARTE 5: Pantalla Galería (FlexLayout) - 0.75 puntos
+
+5.1 Crear GaleriaPage
+
+     1. Add → New Item → .NET MAUI ContentPage (XAML)
+
+     2. Nombre: GaleriaPage.xaml
+
+5.2 Diseñar la galería con FlexLayout
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+        x:Class="[TuNamespace].GaleriaPage"
+
+        Title="Galería de Imágenes">
+
+
+
+    <ScrollView>
+
+     <StackLayout Padding="15" Spacing="20">
+<!-- Título -->
+
+<Label Text="Galería de Colores"
+
+   FontSize="28"
+
+   FontAttributes="Bold"
+
+   HorizontalOptions="Center"
+
+   TextColor="#0078D4"
+
+   Margin="0,10,0,10"/>
+
+
+
+<Label Text="FlexLayout con Wrap habilitado"
+
+   FontSize="16"
+
+   HorizontalOptions="Center"
+
+   TextColor="Gray"
+
+   Margin="0,0,0,10"/>
+
+
+
+<!-- FlexLayout para galería -->
+
+<FlexLayout Direction="Row"
+
+      Wrap="Wrap"
+
+      JustifyContent="SpaceAround"
+
+      AlignItems="Start"
+
+      AlignContent="Start">
+
+
+
+  <!-- Item 1 -->
+
+  <Frame WidthRequest="100"
+
+      HeightRequest="100"
+
+      CornerRadius="10"
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#0078D4">
+
+  <Label Text="Azul"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+
+
+
+<!-- Item 2 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#16C60C">
+
+  <Label Text="Verde"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+
+
+
+<!-- Item 3 -->
+
+<Frame WidthRequest="100"
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#FF6B35">
+
+  <Label Text="Naranja"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+
+
+
+<!-- Item 4 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#9C27B0">
+
+  <Label Text="Morado"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+<!-- Item 5 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#E91E63">
+
+  <Label Text="Rosa"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+
+
+
+<!-- Item 6 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#00BCD4">
+
+  <Label Text="Cyan"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="White"
+
+     FontAttributes="Bold"/>
+</Frame>
+
+
+
+<!-- Item 7 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#FFC107">
+
+  <Label Text="Amarillo"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+
+     TextColor="Black"
+
+     FontAttributes="Bold"/>
+
+</Frame>
+
+
+
+<!-- Item 8 -->
+
+<Frame WidthRequest="100"
+
+   HeightRequest="100"
+
+   CornerRadius="10"
+
+   Padding="0"
+
+   Margin="5"
+
+   BackgroundColor="#795548">
+
+  <Label Text="Café"
+
+     HorizontalOptions="Center"
+
+     VerticalOptions="Center"
+           TextColor="White"
+
+           FontAttributes="Bold"/>
+
+      </Frame>
+
+
+
+    </FlexLayout>
+
+
+
+    <!-- Información adicional -->
+
+    <Frame BackgroundColor="#F5F5F5"
+
+       CornerRadius="10"
+
+       Padding="15"
+
+       Margin="0,20,0,0">
+
+      <StackLayout Spacing="8">
+
+        <Label Text="    FlexLayout Características:"
+
+           FontAttributes="Bold"
+
+           FontSize="16"/>
+
+        <Label Text="✓ Wrap: Permite múltiples líneas"/>
+
+        <Label Text="✓ JustifyContent: Distribución horizontal"/>
+
+        <Label Text="✓ AlignItems: Alineación vertical"/>
+
+        <Label Text="✓ Responsive: Se adapta al tamaño de pantalla"/>
+
+      </StackLayout>
+
+    </Frame>
+
+
+
+   </StackLayout>
+
+ </ScrollView>
+
+
+
+</ContentPage>
+CAPTURA DE PANTALLA 9: GaleriaPage.xaml mostrando el FlexLayout
+
+CAPTURA DE PANTALLA 10: Galería en el emulador mostrando los 8 items
+
+
+
+PARTE 6: Comparación XAML vs Android XML (OBLIGATORIO - 0.5 puntos)
+
+Crea un documento (en tu PDF final) con una tabla comparativa:
+
+Aspecto              Android XML                  .NET MAUI XAML
+
+                                                  StackLayout /
+Layout vertical      LinearLayout (vertical)
+                                                  VerticalStackLayout
+
+Layout de            GridLayout /
+                                                  Grid
+cuadrícula           ConstraintLayout
+
+Layout flexible      - (limitado)                 FlexLayout
+
+TextView             TextView                     Label
+
+EditText             EditText                     Entry
+
+Button               Button                       Button
+
+ImageView            ImageView                    Image
+
+Espaciado            android:layout_margin        Margin
+
+Padding              android:padding              Padding
+
+ID                   android:id="@+id/..."        x:Name="..."
+
+Preguntas a responder:
+
+     1. ¿Qué ventajas tiene XAML sobre XML de Android?
+
+     2. ¿Qué layout de MAUI usarías para reemplazar ConstraintLayout de
+        Android?
+
+     3. ¿Cómo se compara FlexLayout de MAUI con lo que conoces de Android?
+
+
+
+PARTE 7: Diseño Creativo (BONUS +0.5 puntos)
+OPCIONAL: Agrega una cuarta pantalla con un diseño creativo que combine
+múltiples layouts.
+
+Ideas:
+
+   •     Perfil de usuario con foto, info y estadísticas
+
+   •     Pantalla de producto con imagen, descripción y opciones
+
+   •     Chat UI con mensajes
+
+   •     Calculadora
+
+Requisitos para el bonus:
+
+   •     Usa al menos 2 layouts diferentes anidados
+
+   •     Diseño visualmente atractivo con colores y espaciado apropiado
+
+   •     Funcionalidad básica implementada
+
+CAPTURA BONUS 1: Código XAML de tu pantalla creativa
+
+CAPTURA BONUS 2: Pantalla creativa en el emulador
+
+
+
+FORMATO DE ENTREGA
+
+Debes entregar un documento PDF que contenga:
+
+Portada:
+
+   •     Nombre de la asignatura
+
+   •     Título: "Práctica 3 - Diseño de Interfaces con Layouts XAML"
+
+   •     Tu nombre completo
+
+   •     Matrícula
+
+   •     Fecha de entrega
+
+Contenido Obligatorio:
+
+Sección 1: Proyecto y Menú Principal
+
+   •     Captura 1: Solution Explorer
+
+   •     Captura 2: MainPage.xaml código
+   •   Captura 3: MainPage en emulador
+
+Sección 2: Formulario (StackLayout)
+
+   •   Captura 4: FormularioPage.xaml código
+
+   •   Captura 5: Formulario vacío en emulador
+
+   •   Captura 6: Formulario con validación exitosa
+
+Sección 3: Dashboard (Grid)
+
+   •   Captura 7: DashboardPage.xaml código Grid
+
+   •   Captura 8: Dashboard en emulador
+
+Sección 4: Galería (FlexLayout)
+
+   •   Captura 9: GaleriaPage.xaml código
+
+   •   Captura 10: Galería en emulador
+
+Sección 5: Comparación XAML vs Android
+
+   •   Tabla comparativa completa
+
+   •   Respuestas a las 3 preguntas
+
+Contenido BONUS (Opcional):
+
+   •   Captura Bonus 1: Código de pantalla creativa
+
+   •   Captura Bonus 2: Pantalla en emulador
+
+
+
+CRITERIOS DE EVALUACIÓN
+
+Criterio                Puntos Descripción
+
+                                Proyecto creado, NavigationPage configurado, menú
+Proyecto y menú         0.5
+                                con 3 botones
+
+Formulario
+                        0.75    Formulario completo con validación funcionando
+StackLayout
+
+Dashboard Grid          0.75    Grid con 4 tarjetas correctamente distribuidas
+Criterio                Puntos Descripción
+
+Galería FlexLayout      0.75    FlexLayout con wrap y 8+ items
+
+Comparación
+                        0.25    Tabla y respuestas correctas
+XAML/XML
+
+TOTAL BASE              3.0
+
+BONUS: Diseño
+                        +0.5    Pantalla adicional con diseño original
+creativo
+
+TOTAL MÁXIMO            3.5
+
+Nota: Esta práctica vale 2.0 puntos del total de prácticas, pero puede obtener hasta
+2.5 puntos con el bonus (0.5 extra se suma directamente a tu calificación).
+
+Nota para aprobar: 1.4 puntos (70% de 2.0 base)
+
+
+
+RÚBRICA DETALLADA
+
+Proyecto y Menú Principal (0.5 puntos)
+
+   •      Excelente (0.5): Proyecto creado correctamente, NavigationPage
+       configurado, MainPage con 3 botones funcionando
+
+   •      Regular (0.25): Proyecto creado pero navegación parcial o diseño
+       incompleto
+
+   •       Insuficiente (0): Proyecto no creado o navegación no funciona
+
+Formulario StackLayout (0.75 puntos)
+
+   •      Excelente (0.75): Formulario con todos los campos, validación funciona,
+       captura muestra éxito
+
+   •     Regular (0.4): Formulario completo pero sin validación o con errores
+       menores
+
+   •       Insuficiente (0): Formulario incompleto o no funciona
+
+Dashboard Grid (0.75 puntos)
+   •       Excelente (0.75): Grid correctamente estructurado, 4 tarjetas bien
+       distribuidas, diseño limpio
+
+   •      Regular (0.4): Grid funcional pero distribución incorrecta o diseño pobre
+
+   •      Insuficiente (0): Grid mal implementado o no usa Grid
+
+Galería FlexLayout (0.75 puntos)
+
+   •      Excelente (0.75): FlexLayout con Wrap, 8+ items, se adapta correctamente
+
+   •      Regular (0.4): FlexLayout funcional pero menos items o propiedades
+       incorrectas
+
+   •      Insuficiente (0): No usa FlexLayout o implementación incorrecta
+
+Comparación (0.25 puntos)
+
+   •      Excelente (0.25): Tabla completa y 3 respuestas correctas
+
+   •      Regular (0.15): Tabla o respuestas incompletas
+
+   •      Insuficiente (0): No completó la comparación
+
+
+
+PREGUNTAS FRECUENTES
+
+P: ¿Puedo cambiar los colores del diseño? R: Sí, puedes personalizar colores, pero
+manteniendo la funcionalidad.
+
+P: ¿Tengo que usar exactamente 8 items en FlexLayout? R: Mínimo 8. Puedes
+agregar más si quieres.
+
+P: ¿El formulario tiene que guardar datos realmente? R: No, solo validar y mostrar
+mensaje de éxito.
+
+P: Error: "The name [nombre] does not exist in the current context" R: Verifica que
+el namespace en el archivo .xaml coincida con tu proyecto.
+
+P: ¿Puedo usar otros controles además de los mencionados? R: Sí, pero debes
+incluir mínimo los especificados.
+
+
+
+CONSEJOS Y RECOMENDACIONES
+   Para StackLayout:
+
+   •   Usa Spacing para separar elementos uniformemente
+
+   •   ScrollView es útil para formularios largos
+
+   •   Orientation puede ser Vertical u Horizontal
+
+   Para Grid:
+
+   •   Define RowDefinitions y ColumnDefinitions claramente
+
+   •   Usa Auto para filas/columnas que se ajustan al contenido
+
+   •   Usa * para filas/columnas que ocupan espacio disponible
+
+   •   Grid.ColumnSpan te permite que un elemento ocupe múltiples columnas
+
+   Para FlexLayout:
+
+   •   Wrap="Wrap" permite múltiples líneas
+
+   •   JustifyContent controla la distribución horizontal
+
+   •   AlignItems controla la alineación vertical
+
+   •   Perfecto para galerías y diseños responsivos
+
+   General:
+
+   •   Usa Padding y Margin en múltiplos de 4 u 8
+
+   •   Nombra elementos con x:Name si necesitas accederlos desde código
+
+   •   Usa colores consistentes en toda la app
+
+   •   Prueba en diferentes tamaños de pantalla
+
+
+
+PROBLEMAS COMUNES Y SOLUCIONES
+
+Problema 1: NavigationPage no funciona
+
+Solución: Verifica en App.xaml.cs que tengas:
+
+MainPage = new NavigationPage(new MainPage());
+
+Problema 2: Grid no distribuye correctamente
+Solución: Verifica que hayas definido RowDefinitions y ColumnDefinitions y que uses
+Grid.Row y Grid.Column correctamente.
+
+Problema 3: FlexLayout no hace wrap
+
+Solución: Asegúrate de tener Wrap="Wrap" y que los items tengan WidthRequest
+definido.
+
+Problema 4: Validación del formulario no funciona
+
+Solución: Verifica que los controles tengan x:Name y que el método esté en el
+archivo .xaml.cs correcto.
+
+
+
+RECURSOS ADICIONALES
+
+   Documentación oficial:
+
+   •   https://learn.microsoft.com/dotnet/maui/user-interface/layouts/
+
+   •   https://learn.microsoft.com/dotnet/maui/user-interface/layouts/grid
+
+   •   https://learn.microsoft.com/dotnet/maui/user-interface/layouts/flexlayout
+
+   Tutoriales recomendados:
+
+   •   Microsoft Learn: MAUI Layouts
+
+   •   YouTube: "MAUI Grid Layout Tutorial"
+
+
+
+CHECKLIST ANTES DE ENTREGAR
+
+   •   [ ] Proyecto creado con nombre correcto
+
+   •   [ ] NavigationPage configurado
+
+   •   [ ] MainPage con 3 botones funcionando
+
+   •   [ ] FormularioPage completo con validación
+
+   •   [ ] DashboardPage con Grid de 4 tarjetas
+
+   •   [ ] GaleriaPage con FlexLayout de 8+ items
+
+   •   [ ] 10 capturas de pantalla obligatorias
+
+   •   [ ] Tabla comparativa XAML vs XML
+   •   [ ] 3 respuestas a preguntas
+
+   •   [ ] Documento en formato PDF
+
+   •   [ ] Nombre: Practica3_[MiNombre].pdf
+
+   •   [ ] Ortografía revisada
+
+   •   [ ] Tamaño menor a 10 MB
+
+   •   [ ] (Opcional) Pantalla creativa bonus
+
+
+
+FECHA DE ENTREGA
+
+   Fecha límite: Despues de - 7 días después de la clase
+   Hora límite: 11:59 PM
+   Plataforma: Moodle - Sección "Prácticas" → "Práctica 3"
+
+
+
+CRITERIOS DE PENALIZACIÓN
+
+   •   Entrega tardía: -0.5 puntos por día de retraso (máximo 2 días)
+
+   •   Formato incorrecto: -0.25 puntos (si no es PDF)
+
+   •   Capturas ilegibles: -0.1 puntos por captura
+
+   •   Código no funciona: -0.5 a -1.0 según gravedad
+
+   •   Plagio detectado: 0 puntos en la práctica
+
+
+
+Nota importante: Esta práctica es individual. El código debe ser escrito por ti
+siguiendo las instrucciones. Puedes consultar con compañeros sobre dudas
+técnicas, pero no compartir código completo.
+
+
+
+¡Éxito en tu tercera práctica de .NET MAUI!
+
+Esta práctica te dará experiencia práctica con los layouts más importantes de MAUI,
+habilidades que usarás en todos tus proyectos futuros.
+Michael Grullon
+Instructor - Introducción al Desarrollo Móvil
+Período 2016-C1
+
